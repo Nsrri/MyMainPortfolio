@@ -1,0 +1,85 @@
+@import "variables";
+
+.newsletter-section {
+  @include section-frame;
+  text-align: center;
+  padding: 10px;
+}
+
+.newsletter-section-title {
+  color: $color-dark;
+  padding-bottom: 20px;
+}
+
+.newsletter-section-subtitle {
+  color: $color-dark;
+  margin-bottom: 20px;
+}
+
+.newsletter-section-form {
+  .newsletter-section-form-label {
+    color: $color-dark;
+    //   display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+.newsletter-section-form-input[type="email"] {
+  background-color: transparent;
+  color: $color-dark;
+  border: none;
+  border-bottom: 1px solid $color-dark;
+  width: calc(100% - 20px);
+  margin-right: 10px;
+  padding: 5px;
+  box-sizing: border-box;
+  &:focus {
+    outline: none;
+    border-color: $color-dark;
+  }
+}
+
+.newsletter-section-form-button[type="submit"] {
+  @include submitButton-design;
+}
+
+@media screen and (min-width: 804px) and (max-width: 1024px) {
+  .newsletter-section-title {
+    font-size: 1.1rem;
+  }
+  .newsletter-section-subtitle {
+    font-size: 1rem;
+  }
+  .newsletter-section-form-label {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 839px) {
+  .newsletter-section {
+    width: 97%;
+  }
+}
+
+@media screen and (min-width: 653px) and (max-width: 803px) {
+  s .newsletter-section-title {
+    font-size: 1rem;
+  }
+  .newsletter-section-subtitle {
+    font-size: 1rem;
+  }
+  .newsletter-section-form-label {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 653px) {
+  .newsletter-section-title {
+    font-size: 1rem;
+  }
+  .newsletter-section-subtitle {
+    font-size: 0.7rem;
+  }
+  .newsletter-section-form-label {
+    font-size: 0.8rem;
+  }
+}

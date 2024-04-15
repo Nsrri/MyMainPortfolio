@@ -1,0 +1,51 @@
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* $radius is the parameter of the function */
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin section-frame {
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 2px rgb(75, 76, 82);
+}
+
+@mixin center-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+}
+
+@mixin center-section-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+}
+@mixin submitButton-design {
+  background-color: $background-dark;
+  color: $color-dark;
+  border: 1px solid $color-dark;
+  border-radius: 4px;
+  padding: 13px 16px;
+
+  cursor: pointer;
+  margin-top: 20px;
+  &:hover {
+    background-color: $background-light;
+    color: $color-light;
+    border: 1px solid $color-light;
+  }
+}

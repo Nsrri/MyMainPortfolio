@@ -1,0 +1,93 @@
+@import "variables";
+@import "mixins";
+@import "gridContainer";
+@import "section-layout";
+@import "workItemSettings";
+@import "subscription";
+@import "newsLetterAside";
+@import "filter";
+@import "detail";
+@import "contact";
+@import "about-team";
+body {
+  font-family: $fonts; /* variable usage */
+  background-color: $background-dark;
+  padding: $spacing;
+  font-size: $font-size;
+  min-height: 100vh;
+  color: $color-dark;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+
+  /* using the mixins function */
+}
+
+.nav-container {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $nav-background;
+  opacity: 0.9;
+  padding: 20px;
+}
+
+.logo-h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-left: 10px;
+}
+
+.header-nav-ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header-nav-li {
+  margin-right: 30px;
+}
+
+.header-nav-li-a {
+  color: $color-dark;
+  text-decoration: none;
+}
+
+.header-nav-li-a:hover {
+  color: #66b2ff;
+}
+
+.header-nav-li-a:active {
+  color: #66b2ff;
+}
+
+.sub-logo {
+  text-transform: none !important;
+  color: #66b2ff;
+}
+
+.footer {
+  color: #a5a5a5;
+  text-align: center;
+  padding: 10px;
+  margin-top: auto;
+  text-align: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-nav-li {
+    margin-right: 25px;
+  }
+}

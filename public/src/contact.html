@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Contact</title>
+</head>
+<body>
+    <header>
+        <div>
+            <nav class="nav-container">
+                <div class="Logo">
+                    <div class=" ">
+                        <h1 class="logo-h1"><a>Ns<span class="sub-logo">rri</span></a></h1>
+                        <div class="activity-bar"></div>
+                    </div>
+                </div>
+                <ul class="header-nav-ul">
+                    <li class="header-nav-li"><a class="header-nav-li-a" href="./homepage.html">Home</a></li>
+                    <li class="header-nav-li"><a class="header-nav-li-a" href="./projects.html">Projects</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="grid-container">
+        <section class="info-section-contact">
+            <article class="aboutTeam">
+                <div class="aboutTeam-text">
+                    <small class="aboutTeam-small">Hi, I'm the CEO of</small>
+                    <h2 class="aboutTeam-header" >Nsrri.</h2>
+                    <p class="aboutTeam-paraghraph">Nsrri is a Team which is specialist in Full-Stack developement, The Security and Quality is our purpose. We are happy that you visited out Portfolio!</p>
+                </div>
+                <div class="section-img-container-contact">
+                    <img src="../resources/myImage.JPG" alt="The image of the owner of the website"  class="section-img-contact"/>
+                </div>
+            </article>   
+        </section> 
+        <section class="contact-section">
+            <h2 class="contact-form-h2">Contact Me</h2>
+            <p class="contact-form-p">Feel free to get in touch with me using the form below:</p>
+            <form action="../phpMailer/emailSender.php" method="POST" class="contact-form">
+                <div class="contact-form-fields">
+                    <label for="name" class="contact-form-fields-label">Name:</label> 
+                    <input class="contact-form-fields-input" type="text" id="name" name="name" required>
+                </div>
+                <div class="contact-form-fields">
+                    <label for="email" class="contact-form-fields-label">Email:</label>
+                    <input class="contact-form-fields-input" type="email" id="email" name="email" required>
+                </div>
+                <div class="contact-form-fields">
+                    <label for="subject" class="contact-form-fields-label">Subject:</label> 
+                    <select class="contact-form-fields-input" id="subject" name="subject" required> 
+                        <option value="" disabled selected>Select Subject</option>
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Project Inquiry">Project Inquiry</option>
+                        <option value="Feedback">Feedback</option>
+                    </select>
+                </div>
+                <div class="contact-form-fields">
+                    <label for="message" class="contact-form-fields-label">Message:</label>
+                    <textarea class="contact-form-fields-input" id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button class="contact-form-button" type="submit" value="send the contact request email" onclick="sendEmail()">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>© 2024 My Media Collection. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>

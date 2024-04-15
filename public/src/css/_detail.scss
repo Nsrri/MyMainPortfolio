@@ -1,0 +1,201 @@
+@import "variables";
+
+.project-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  @include section-frame;
+  padding: 10px;
+  width: 90%;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgb(184, 184, 184);
+  object-fit: cover;
+  margin: 20px auto;
+}
+.project-description {
+  margin-left: 15px;
+}
+
+.appointment-section {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 300px;
+}
+
+.appointment-section-title {
+  color: $color-dark;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.appointment-section-subtitle {
+  color: $color-dark;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.appointment-section-form {
+  margin: 0 auto;
+}
+
+.appointment-section-form-lable {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+  padding-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.appointment-section-form-input[type="email"],
+.appointment-section-form-input[type="date"] {
+  color: $color-dark;
+  border: 1px solid $color-dark;
+  background-color: transparent;
+  border-radius: 5px;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  &:focus {
+    box-shadow: 0 4px 8px rgb(240, 248, 248);
+  }
+}
+
+.appointment-section-form-input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(99%);
+}
+
+.appointment-section-form-button[type="submit"] {
+  color: $color-dark;
+  border: 1px solid $color-dark;
+  background-color: $background-dark;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.appointment-section-form-button[type="submit"]:hover {
+  color: $color-light;
+  background-color: $background-light;
+}
+
+@media screen and (max-width: 1061px) and (min-width: 769px) {
+  .project-detail {
+    grid-template-columns: 1fr;
+    margin-top: 120px;
+  }
+
+  .project-description {
+    margin-left: 0;
+  }
+  .project-image {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 499px) {
+  .project-detail {
+    grid-template-columns: 1fr;
+    margin-top: 150px;
+  }
+  .project-description {
+    font-size: 0.9rem;
+  }
+
+  .appointment-section-title {
+    font-size: 1.3rem;
+  }
+
+  .appointment-section-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .appointment-section-form-lable {
+    font-size: 0.8rem;
+  }
+
+  .appointment-section-form-input[type="email"],
+  .appointment-section-form-input[type="date"] {
+    font-size: 0.7rem;
+  }
+
+  .appointment-section-form-button[type="submit"] {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+@media screen and (max-width: 500px) and (min-width: 386px) {
+  .project-detail {
+    grid-template-columns: 1fr;
+    margin-top: 180px;
+  }
+  .project-description {
+    font-size: 0.8rem;
+  }
+
+  .appointment-section-title {
+    font-size: 1rem;
+  }
+
+  .appointment-section-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .appointment-section-form-lable {
+    font-size: 0.6rem;
+  }
+
+  .appointment-section-form-input[type="email"],
+  .appointment-section-form-input[type="date"] {
+    font-size: 0.7rem;
+  }
+
+  .appointment-section-form-button[type="submit"] {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}
+@media screen and (max-width: 385px) {
+  .project-detail {
+    grid-template-columns: 1fr;
+    margin-top: 190px;
+  }
+  .project-description {
+    font-size: 0.8rem;
+  }
+
+  .appointment-section-title {
+    font-size: 1rem;
+  }
+
+  .appointment-section-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .appointment-section-form-lable {
+    font-size: 0.6rem;
+  }
+
+  .appointment-section-form-input[type="email"],
+  .appointment-section-form-input[type="date"] {
+    font-size: 0.7rem;
+  }
+
+  .appointment-section-form-button[type="submit"] {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}

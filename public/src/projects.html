@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Project</title>
+</head>
+<body>
+    <header>
+        <div>
+            <nav class="nav-container">
+                <div class="Logo">
+                    <div >
+                        <h1 class="logo-h1"><a>Ns<span class="sub-logo">rri</span></a></h1>
+                        <div class="activity-bar"></div>
+                    </div>
+                </div>
+                <ul class="header-nav-ul">
+                    <li class="header-nav-li"><a class="header-nav-li-a"href="./homepage.html">Home</a></li>
+                    <li class="header-nav-li"><a class="header-nav-li-a" href="./contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="grid-container">
+        <section class="filter-overview">
+            <h2 class="filter-title">Overview</h2>
+            <section class="filter">
+                <div class="filter-item" data-category="All">
+                    <p class="filter-item-p" >All</p>
+                </div>
+                <div class="filter-item" data-category="frontend">
+                    <p class="filter-item-p">Frontend</p>
+                </div>
+                <div class="filter-item" data-category="backend">
+                    <p class="filter-item-p">Backend</p>
+                </div>
+                <div class="filter-item" data-category="fullstack" >
+                    <p class="filter-item-p">Fullstack</p>
+                </div>
+            </sectin>
+        </section> 
+        <section class="work-section">
+            <div class="frontend filter-section" data-category="frontend">
+                <h3 class="filter-item-title">Frontend</h3>
+                <div class="cat-items">
+                    <article class="works">
+                        <h4>Music Player</h4>
+                        <a id="musicplayer" onclick="openDetail('This is a react native mobile application which uses Spotify API, user till now is able only search the music and listen to a demo version of the song, the app is still under developement.', 'Music Player', '../resources/musicplayer.png')"><img src="../resources/musicplayer.png" alt="react native music player app picture" class="work-image" /></a>
+                    </article>
+                    <article class="works">
+                        <h4 class="filter-item-title">Media website</h4>
+                        <a onclick="openDetail('Mediaco is a static website which shows my favourite items in three categories: Movie, Game, Song.', 'Mediaco website', '../resources/mediaco.png')"  id="media"><img src="../resources/mediaco.jpeg" alt="Image of a lap top" class="work-image" /></a>
+                    </article>
+                    <article class="works">
+                        <h4>Cooking website</h4>
+                        <a onclick="openDetail('This is a static website, shows the reciept of Mantu(an Afghan Cousine).', 'Cooking website', '../resources/cook.png')" id="cook"><img src="../resources/mediaco.jpeg" alt="Image of a lap top" class="work-image"  /></a>
+                    </article>
+                    <article class="works">
+                        <h4 class="filter-item-title">Twitter</h4>
+                        <a onclick="openDetail('This is one of my early project which I implemented it on the first day of learning react.', 'twitter', '../resources/twitter.png')" id="twitter"><img src="../resources/twitter.png" alt="twitter react app" class="work-image"  /></a>
+                    </article>
+                    <article class="works">
+                        <h4>First Portfolio</h4>
+                        <a onclick="openDetail('My first Portfolio, implemented in html, css, js.', 'My Potfolio', '../resources/Portfolio.jpg')" id="portfolio"><img src="../resources/Portfolio.jpg" alt="example image of a portfolio" class="work-image"  /></a>
+                    </article>
+                    <article class="works">
+                        <h4 >Simple TodoList</h4>
+                        <a onclick="openDetail('One of the early projects.', 'Todo website', '../resources/todo.png')" id="todo"><img src="../resources/todo.png" alt="example image of a portfolio" class="work-image"  /></a>
+                    </article>
+                </div>
+            </div>
+            <div class="backend filter-section" data-category="backend"> 
+                <h3 class="filter-item-title">Backend</h3>
+                <div class="cat-items">
+                    <article class="works">
+                        <h4>Dictionary Server</h4>
+                        <a onclick="openDetail('A simple API written via node js, express js, Mango DB which communicates with only one table.', 'Dictinary Server', '../resources/dictionaryServer.jpg')"id="dictionary-server"><img src="../resources/dictionaryServer.jpg" alt="Ndoe js" class="work-image"  /></a>
+                    </article>
+                    <article class="works">
+                        <h4>Portfolio Server</h4>
+                        <a onclick="openDetail('This API is writtne via Java, servlet, Tomcat, MySql, which is going to be used to save for this webste.', 'Portfolio Server', '../resources/javaBackend.png')" id="portfolio-server"><img src="../resources/javaBackend.png" alt="Ndoe js" class="work-image" /></a>
+                    </article>
+                    <article class="works">
+                        <h4>Jokes Server</h4>
+                        <a onclick="openDetail('This is a simple API written in node js, express js.', 'jokes Server', '../resources/joke.png')" id="joke-server"><img src="../resources/joke.png" alt="Ndoe js" class="work-image" id="backend"/></a>
+                    </article>
+                </div>
+            </div>
+            <div class="fullstack filter-section" data-category="fullstack">
+                <h3 class="filter-item-title">Fullstack</h3>
+                <div class="cat-items">
+                    <article class="works">
+                        <h4>Dictionary</h4>
+                        <a onclick="openDetail('This is an iOS mobile app which serves as multiple purpose, user can use it as a notebook to save new learned verbs in german and the verbs will be saved in a database, it also provides a test to check the language level.', 'Dictinary', '../resources/Dictinary.png')" id="dictionary"><img src="../resources/Dictinary.png" alt="ios mobile picture" class="work-image" /></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </section>
+</main>
+<footer class="footer">
+    <p>© 2024 My Media Collection. All rights reserved.</p>
+</footer>
+<script src="./scripts.js"></script>
+</body>
+</html>

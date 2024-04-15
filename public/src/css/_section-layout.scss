@@ -1,0 +1,247 @@
+.about-me {
+  margin-bottom: 20px;
+  @include center-section();
+  @include section-frame();
+  margin-top: 100px;
+}
+
+.section-img-container {
+  text-align: center; /* Center the image horizontally */
+}
+
+.section-img {
+  width: 100%;
+  mix-blend-mode: $blend-image-dark;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .work-section .works {
+    flex: 0 1 calc(50% - 10px);
+  }
+  .skill-item {
+    flex-direction: column;
+  }
+  .section-img-container {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .about-me {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+  }
+
+  /* Adjust font sizes */
+  .work-section-h2,
+  .category-header,
+  .skill-item-h3,
+  .aboutme-paraghraph,
+  .aboutme-small,
+  .aboutme-header,
+  .works-header {
+    font-size: 1rem;
+  }
+
+  .works-status {
+    font-size: 0.9rem;
+  }
+
+  /* Adjust image */
+  .section-img {
+    max-width: 80%;
+  }
+
+  /* Adjust form width */
+  .newsletter-section-form-label,
+  .newsletter-section-form-input,
+  .cat-item-home,
+  .work-image {
+    width: 100%;
+  }
+}
+
+/* Adjust layout for smaller screens */
+@media screen and (max-width: 767px) and (min-width: 682px) {
+  .nav-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-nav-li-a {
+    margin: 5px 0;
+  }
+
+  .about-me {
+    display: flex;
+    flex-direction: column;
+    margin-top: 140px;
+  }
+
+  .section-img-container {
+    width: 100%;
+    justify-content: center;
+  }
+  .section-img {
+    max-width: 100%;
+  }
+  .aboutme-small {
+    font-size: 0.5rem;
+  }
+  .aboutme-header,
+  .works-header {
+    font-size: 0.99rem;
+  }
+  .works-status {
+    font-size: 0.7rem;
+  }
+
+  .work-section-h2,
+  .category-header {
+    font-size: 1rem;
+  }
+  .skill-item-h3 {
+    font-size: 0.9rem;
+  }
+
+  /* Adjust form width */
+  .newsletter-section-form-label,
+  .newsletter-section-form-input {
+    width: 100%;
+  }
+  footer {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 681px) and (min-width: 639px) {
+  .nav-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-nav-li-a {
+    margin: 5px 0;
+  }
+
+  .about-me {
+    display: flex;
+    flex-direction: column;
+    margin-top: 140px;
+  }
+  .aboutme-paraghraph {
+    font-size: 1rem;
+  }
+
+  .section-img-container {
+    width: 100%;
+    justify-content: center;
+  }
+  .section-img {
+    max-width: 100%;
+  }
+  .aboutme-small {
+    font-size: 0.5rem;
+  }
+  .aboutme-header {
+    font-size: 0.99rem;
+  }
+  .works-status {
+    font-size: 0.6rem;
+  }
+
+  .work-section-h2,
+  .category-header {
+    font-size: 1rem;
+  }
+  .skill-item-h3 {
+    font-size: 0.9rem;
+  }
+
+  /* Adjust form width */
+  .newsletter-section-form-label,
+  .newsletter-section-form-input {
+    width: 100%;
+  }
+  footer {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 638px) and (min-height: 448px) {
+  .nav-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-nav-li-a {
+    margin: 5px 0;
+  }
+
+  .about-me {
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;
+  }
+  .aboutme-paraghraph {
+    font-size: 0.6rem;
+  }
+
+  .section-img-container {
+    width: 100%;
+    justify-content: center;
+  }
+  .section-img {
+    max-width: 100%;
+  }
+  .aboutme-small {
+    font-size: 0.5rem;
+  }
+  .aboutme-header {
+    font-size: 0.99rem;
+  }
+  .works-status {
+    font-size: 0.6rem;
+  }
+
+  .work-section-h2,
+  .category-header {
+    font-size: 1rem;
+  }
+  .skill-item-h3 {
+    font-size: 0.9rem;
+  }
+
+  /* Adjust form width */
+  .newsletter-section-form-label,
+  .newsletter-section-form-input {
+    width: 100%;
+  }
+  footer {
+    font-size: 0.6rem;
+  }
+}
+@media screen and (max-width: 447px) and (min-width: 320px) {
+  .about-me {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    // margin: auto;
+  }
+
+  .aboutme-paraghraph {
+    font-size: 0.4rem;
+  }
+  .aboutme-header,
+  .works-header {
+    font-size: 0.9rem;
+  }
+  .about-me {
+    padding: 15px;
+    margin-top: 160px;
+  }
+  footer {
+    font-size: 0.5rem;
+  }
+}
