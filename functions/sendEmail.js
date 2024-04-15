@@ -1,39 +1,30 @@
-// netlify/functions/sendEmail.js
-
-const { PHPMailer } = require("phpmailer");
+require('dotenv').config()
+const { MAILGUN_API_KEY, MAILGUN_DOMAIN, MAILGUN_URL, FROM_EMAIL_ADDRESS, CONTACT_TO_EMAIL_ADDRESS } = process.env
+const mailgun = require('mailgun-js')({ apiKey: MAILGUN_API_KEY, domain: MAILGUN_DOMAIN, url: MAILGUN_URL })
 
 exports.handler = async (event) => {
-  const { name, email, subject, message } = JSON.parse(event.body);
-  const mail = new PHPMailer(true);
-
-  try {
-    mail.isSMTP();
-    mail.Host = "smtp.gmail.com";
-    mail.Port = 587;
-    mail.SMTPSecure = "tls";
-    mail.SMTPAuth = true;
-    mail.Username = "nasrinjafari7597@gmail.com";
-    mail.Password = "defn jjbw ondx jukq";
-
-    mail.setFrom(email, name);
-    mail.addAddress("nasrin.jafari@powercoders.org", "Narin");
-
-    mail.Subject = subject;
-    mail.Body = message;
-    mail.isHTML(true);
-
-    await mail.send();
-
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ message: "Mail has been sent successfully!" }),
-    };
-  } catch (error) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({
-        error: `Message could not be sent. Mailer Error: ${error.message}`,
-      }),
-    };
+  if (event.httpMethod !== 'POST') {
+    return { statusCode: 405, body: 'Method Not Allowed', headers: { 'Allow': 'POST' } }
   }
-};
+
+  const data = JSON.parse(event.body)
+  if (!data.message || !data.contactName || !data.contactEmail) {
+    return { statusCode: 422, body: 'Name, email, and message are required.' }
+  }
+
+  const mailgunData = {
+    from: FROM_EMAIL_ADDRESS,
+    to: CONTACT_TO_EMAIL_ADDRESS,
+    'h:Reply-To': data.contactEmail,
+    subject: `New contact from ${data.contactName}`,
+    text: `Name: ${data.contactName}\nEmail: ${data.contactEmail}\nMessage: ${data.message}`
+  }
+
+  return mailgun.messages().send(mailgunData).then(() => ({
+    statusCode: 200,
+    body: "Your message was sent successfully! We'll be in touch."
+  })).catch(error => ({
+    statusCode: 422,
+    body: `Error: ${error}`
+  }))
+}
