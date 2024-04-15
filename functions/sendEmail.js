@@ -1,30 +1,40 @@
-require('dotenv').config()
-const { MAILGUN_API_KEY, MAILGUN_DOMAIN, MAILGUN_URL, FROM_EMAIL_ADDRESS, CONTACT_TO_EMAIL_ADDRESS } = process.env
-const mailgun = require('mailgun-js')({ apiKey: MAILGUN_API_KEY, domain: MAILGUN_DOMAIN, url: MAILGUN_URL })
+const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 exports.handler = async (event) => {
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method Not Allowed', headers: { 'Allow': 'POST' } }
-  }
+  const { name, email, subject, message } = JSON.parse(event.body);
 
-  const data = JSON.parse(event.body)
-  if (!data.message || !data.contactName || !data.contactEmail) {
-    return { statusCode: 422, body: 'Name, email, and message are required.' }
-  }
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASS,
+    },
+  });
 
-  const mailgunData = {
-    from: FROM_EMAIL_ADDRESS,
-    to: CONTACT_TO_EMAIL_ADDRESS,
-    'h:Reply-To': data.contactEmail,
-    subject: `New contact from ${data.contactName}`,
-    text: `Name: ${data.contactName}\nEmail: ${data.contactEmail}\nMessage: ${data.message}`
-  }
+  const mailOptions = {
+    from: email,
+    to: "nasrin.jafari@powercoders.org",
+    subject: subject,
+    text: `Name: ${name}\nEmail: ${email}\n\nMessage: ${message}`,
+  };
 
-  return mailgun.messages().send(mailgunData).then(() => ({
-    statusCode: 200,
-    body: "Your message was sent successfully! We'll be in touch."
-  })).catch(error => ({
-    statusCode: 422,
-    body: `Error: ${error}`
-  }))
-}
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Email sent:", info.response);
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: "Mail has been sent successfully!" }),
+    };
+  } catch (error) {
+    console.error("Error sending email:", error);
+
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        error: `Message could not be sent. Mailer Error: ${error.message}`,
+      }),
+    };
+  }
+};
