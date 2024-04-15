@@ -1,5 +1,3 @@
-const { json, type } = require("express/lib/response");
-
 document.addEventListener("DOMContentLoaded", () => {
   const filterItems = document.querySelectorAll(".filter-item");
   const works = document.querySelectorAll(".filter-section");
@@ -40,9 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // This is part make the project creation dynamic.
 const params = new URLSearchParams(window.location.search);
-const description = params.get("description");
-const image = params.get("img");
-const title = params.get("title");
+const description = params.get('description');
+const image = params.get('img');
+const title = params.get('title');
 
 const descriptionElement = document.getElementById("description");
 const titleElement = document.getElementById("title");
@@ -51,6 +49,7 @@ const imageElement = document.getElementById("img-detail");
 descriptionElement.textContent = description;
 titleElement.textContent = title;
 imageElement.src = image;
+
 
 function openDetail(message, title, image) {
   window.open(
@@ -64,35 +63,5 @@ function openDetail(message, title, image) {
   );
 }
 
-function sendEmail() {
-  const email = document.getElementById("email");
-  const name = document.getElementById("name");
-  const subject = document.getElementById("subject");
-  const message = document.getElementById("message");
-  var formData = {
-    variables: {
-      email: { value: email, type: "String" },
-      name: { value: name, type: "String" },
-      subject: { value: subject, type: "String" },
-      message: { value: message, type: "String" },
-    },
-  };
-  if (email.value !== "" && name.value !== "" && message.value !== "") {
-    fetch("../phpMailer/emailSender.php", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then(function (response) {
-        if (!response.ok) {
-          throw new Error("HTTP error, Status: " + response.status);
-        }
-        return response.json();
-      })
-      .catch(function (error) {
-        console.error("Error sending data to the process engine:", error);
-      });
-  }
-}
+
+

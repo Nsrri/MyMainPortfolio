@@ -39,7 +39,7 @@
         <section class="contact-section">
             <h2 class="contact-form-h2">Contact Me</h2>
             <p class="contact-form-p">Feel free to get in touch with me using the form below:</p>
-            <form action="../phpMailer/emailSender.php" method="POST" class="contact-form">
+            <form action="submit_contact_form.php" method="post" class="contact-form">
                 <div class="contact-form-fields">
                     <label for="name" class="contact-form-fields-label">Name:</label> 
                     <input class="contact-form-fields-input" type="text" id="name" name="name" required>
@@ -61,13 +61,12 @@
                     <label for="message" class="contact-form-fields-label">Message:</label>
                     <textarea class="contact-form-fields-input" id="message" name="message" rows="4" required></textarea>
                 </div>
-                <button class="contact-form-button" type="submit" value="send the contact request email" onclick="sendEmail()">Submit</button>
+                <button class="contact-form-button" type="submit">Send Message</button>
             </form>
         </section>
     </main>
     <footer class="footer">
         <p>© 2024 My Media Collection. All rights reserved.</p>
     </footer>
-    <script src="scripts.js"></script>
 </body>
 </html>
