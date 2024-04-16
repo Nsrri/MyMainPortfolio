@@ -4,6 +4,6 @@
   directory = "functions"
   
 [[redirects]]
-  from = "/src"
+  from = "/"
   to = "/homepage.html:splat"
   status = 20
