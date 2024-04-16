@@ -5,5 +5,5 @@
   
 [[redirects]]
   from = "/*"
-  to = "/homepage.html"
-  status = 200
+  to = "/homepage.html:splat"
+  status = 20
