@@ -88,7 +88,7 @@
                 resetForm();
             })
             .catch(function(error) {
-                document.getElementById('messageResponse').innerHTML = '<p class="error-message">' + error.response.data + '</p>';
+                console.log(error.message);
             });
         });
         
