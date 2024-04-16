@@ -70,7 +70,9 @@ function openDetail(message, title, image) {
 document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("sendMessageBtn")
-    .addEventListener("click", function () {
+    .addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent default form submission behavior
+
       var contactName = document.getElementById("name").value;
       var contactEmail = document.getElementById("email").value;
       var contactSubject = document.getElementById("subject").value;
@@ -84,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
           message: contactMessage,
         })
         .then(function (response) {
-          console.log(response.message);
+          console.log(response.data); // Log response data, not response.message
           resetForm();
         })
         .catch(function (error) {

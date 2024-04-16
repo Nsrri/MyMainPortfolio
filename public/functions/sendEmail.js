@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
-exports.handler = async (event) => {
+exports.handler = async (event, res) => {
   try {
     // Parse the incoming event body to extract name, email, subject, and message
     const { name, email, subject, message } = parseBody(event.body);
