@@ -4,7 +4,7 @@ require("dotenv").config();
 exports.handler = async (event) => {
   try {
     // Parse the incoming event body to extract name, email, subject, and message
-    const { name, email, subject, message } = JSON.parse(event.body);
+    const { name, email, subject, message } = parseBody(event.body);
 
     // Create a Nodemailer transporter using Gmail SMTP
     const transporter = nodemailer.createTransport({
@@ -15,7 +15,6 @@ exports.handler = async (event) => {
       },
     });
 
-    // Define mail options
     const mailOptions = {
       from: email,
       to: "nasrin.jafari@powercoders.org",
@@ -23,7 +22,6 @@ exports.handler = async (event) => {
       text: `Name: ${name}\nEmail: ${email}\n\nMessage: ${message}`,
     };
 
-    // Send email using Nodemailer transporter
     const info = await transporter.sendMail(mailOptions);
     console.log("Email sent:", info.response);
 
@@ -33,7 +31,6 @@ exports.handler = async (event) => {
       body: JSON.stringify({ message: "Mail has been sent successfully!" }),
     };
   } catch (error) {
-    // Handle errors, including parsing event body as JSON
     console.error("Error processing request:", error);
 
     // Return error response
@@ -46,3 +43,12 @@ exports.handler = async (event) => {
     };
   }
 };
+
+function parseBody(body) {
+  const params = new URLSearchParams(body);
+  const name = params.get("name");
+  const email = params.get("email");
+  const subject = params.get("subject");
+  const message = params.get("message");
+  return { name, email, subject, message };
+}

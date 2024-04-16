@@ -61,12 +61,38 @@
                     <label for="message" class="contact-form-fields-label">Message:</label>
                     <textarea class="contact-form-fields-input" id="message" name="message" rows="4" required></textarea>
                 </div>
-                <button class="contact-form-button" type="submit">Send Message</button>
+                <button class="contact-form-button" type="submit" id="sendMessageBtn">Send Message</button>
             </form>
         </section>
     </main>
     <footer class="footer">
         <p>© 2024 My Media Collection. All rights reserved.</p>
     </footer>
+    <script>
+        document.getElementById('sendMessageBtn').addEventListener('click', function() {
+            var contactName = document.getElementById('name').value;
+            var contactEmail = document.getElementById('email').value;
+            var contactSubject = document.getElementById('subject').value;
+            var contactMessage = document.getElementById('message').value;
+            
+            axios.post('/.netlify/functions/send-contact-email', {
+                name: contactName,
+                email: contactEmail,
+                subject: contactSubject,
+                message: contactMessage
+            })
+            .then(function(response) {
+                document.getElementById('messageResponse').innerHTML = '<p class="success-message">' + response.data + '</p>';
+                resetForm();
+            })
+            .catch(function(error) {
+                document.getElementById('messageResponse').innerHTML = '<p class="error-message">' + error.response.data + '</p>';
+            });
+        });
+        
+        function resetForm() {
+            document.getElementById('contactForm').reset();
+        }
+    </script>
 </body>
 </html>
