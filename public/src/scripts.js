@@ -49,28 +49,27 @@ const descriptionElement = document.getElementById("description");
 const titleElement = document.getElementById("title");
 const imageElement = document.getElementById("img-detail");
 
-if (description && title && textContent) {
+if (description && title && image) {
   descriptionElement.textContent = description;
   titleElement.textContent = title;
   imageElement.src = image;
 }
 
 function openDetail(message, title, image) {
-  window.open(
+  window.location.href =
     "projectDetail.html?description=" +
-      encodeURIComponent(message) +
-      "&title=" +
-      encodeURIComponent(title) +
-      "&img=" +
-      encodeURIComponent(image),
-    "_blank"
-  );
+    encodeURIComponent(message) +
+    "&title=" +
+    encodeURIComponent(title) +
+    "&img=" +
+    encodeURIComponent(image);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  document
-    .getElementById("sendMessageBtn")
-    .addEventListener("click", function (event) {
+  const btn = document.getElementById("sendMessageBtn");
+
+  if (btn) {
+    btn.addEventListener("click", function (event) {
       event.preventDefault();
 
       var contactName = document.getElementById("name").value;
@@ -95,6 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
           alert("Failed to send email. Please try again.");
         });
     });
+  }
 
   function resetForm() {
     document.getElementById("contactForm").reset();

@@ -5,5 +5,5 @@
   
 [[redirects]]
   from = "/"
-  to = "/src/homepage.html"
+  to = "/homepage.html"
   status = 200
