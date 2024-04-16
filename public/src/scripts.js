@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("sendMessageBtn")
     .addEventListener("click", function (event) {
-      event.preventDefault(); // Prevent default form submission behavior
+      event.preventDefault();
 
       var contactName = document.getElementById("name").value;
       var contactEmail = document.getElementById("email").value;
@@ -86,11 +86,13 @@ document.addEventListener("DOMContentLoaded", function () {
           message: contactMessage,
         })
         .then(function (response) {
-          console.log(response.data); // Log response data, not response.message
+          console.log(response.data);
           resetForm();
+          alert("Email sent successfully!");
         })
         .catch(function (error) {
           console.log(error.message);
+          alert("Failed to send email. Please try again.");
         });
     });
 
