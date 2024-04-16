@@ -45,11 +45,10 @@ exports.handler = async (event, res) => {
 };
 
 function parseBody(body) {
-  // If the body is a string, attempt to parse it as JSON
-  if (typeof body === "string") {
+  try {
     return JSON.parse(body);
+  } catch (error) {
+    console.error("Error parsing request body:", error);
+    throw new Error("Invalid request body. Please provide valid JSON data.");
   }
-
-  // If the body is already parsed or is not a string (e.g., form data), return it directly
-  return body;
 }
