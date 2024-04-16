@@ -4,6 +4,6 @@
   directory = "functions"
   
 [[redirects]]
-  from = "/*"
+  from = "/"
   to = "/homepage.html"
   status = 20
