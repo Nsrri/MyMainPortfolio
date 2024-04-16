@@ -45,10 +45,11 @@ exports.handler = async (event) => {
 };
 
 function parseBody(body) {
-  const params = new URLSearchParams(body);
-  const name = params.get("name");
-  const email = params.get("email");
-  const subject = params.get("subject");
-  const message = params.get("message");
-  return { name, email, subject, message };
+  // If the body is a string, attempt to parse it as JSON
+  if (typeof body === "string") {
+    return JSON.parse(body);
+  }
+
+  // If the body is already parsed or is not a string (e.g., form data), return it directly
+  return body;
 }

@@ -18,9 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   showWorks("All");
-  document
-    .querySelector('.filter-item[data-category="All"]')
-    .classList.add("active");
+  const filterItemClass = document.querySelector(
+    '.filter-item[data-category="All"]'
+  );
+  if (filterItemClass) {
+    filterItemClass.classList.add("active");
+  }
 
   filterItems.forEach((filterItem) => {
     filterItem.addEventListener("click", function () {
@@ -38,18 +41,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // This is part make the project creation dynamic.
 const params = new URLSearchParams(window.location.search);
-const description = params.get('description');
-const image = params.get('img');
-const title = params.get('title');
+const description = params.get("description");
+const image = params.get("img");
+const title = params.get("title");
 
 const descriptionElement = document.getElementById("description");
 const titleElement = document.getElementById("title");
 const imageElement = document.getElementById("img-detail");
 
-descriptionElement.textContent = description;
-titleElement.textContent = title;
-imageElement.src = image;
-
+if (description && title && textContent) {
+  descriptionElement.textContent = description;
+  titleElement.textContent = title;
+  imageElement.src = image;
+}
 
 function openDetail(message, title, image) {
   window.open(
@@ -63,7 +67,32 @@ function openDetail(message, title, image) {
   );
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  document
+    .getElementById("sendMessageBtn")
+    .addEventListener("click", function () {
+      var contactName = document.getElementById("name").value;
+      var contactEmail = document.getElementById("email").value;
+      var contactSubject = document.getElementById("subject").value;
+      var contactMessage = document.getElementById("message").value;
 
+      axios
+        .post("/.netlify/functions/sendEmail", {
+          name: contactName,
+          email: contactEmail,
+          subject: contactSubject,
+          message: contactMessage,
+        })
+        .then(function (response) {
+          console.log(response.message);
+          resetForm();
+        })
+        .catch(function (error) {
+          console.log(error.message);
+        });
+    });
 
-
-
+  function resetForm() {
+    document.getElementById("contactForm").reset();
+  }
+});
