@@ -32,12 +32,12 @@
             <aside class="appointment-section">
                 <h4 class="appointment-section-title">Subscribe to our Newsletter</h4>
                 <small class="appointment-section-subtitle">Book an appointment for consultation</small>
-                <form class="appointment-section-form" action="{}" method="post">
+                <form class="appointment-section-form" id="appointment-form">
                     <label class="appointment-section-form-lable" for="email">Email:</label>
                     <input class="appointment-section-form-input" type="email" id="email" name="email" required>
                     <label class="appointment-section-form-lable" for="email">Date:</label>
-                    <input class="appointment-section-form-input" type="date" id="calendar" name="calendar">
-                    <button class="appointment-section-form-button" type="submit">Subscribe</button>
+                    <input class="appointment-section-form-input" type="date" id="date" name="calendar">
+                    <button class="appointment-section-form-button" type="submit" id="sendAppointment">Subscribe</button>
                 </form>
             </aside>
         </section>
@@ -45,6 +45,7 @@
 <footer class="footer">
     <p>© 2024 My Media Collection. All rights reserved.</p>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="scripts.js"></script>
 </body>
 </html>

@@ -77,10 +77,10 @@
                 <aside class="newsletter-section">
                     <h4 class="newsletter-section-title" >Subscribe to our Newsletter</h4>
                     <small class="newsletter-section-subtitle">If You want to get noified about new project subscribe to our newsletter!</small>
-                    <form  class="newsletter-section-form" action="{}" method="post">
+                    <form  class="newsletter-section-form" id="subscription">
                         <label class="newsletter-section-form-label" for="email">Email:</label>
                         <input class="newsletter-section-form-input" type="email" id="email" name="email" required>
-                        <button class="newsletter-section-form-button" type="submit">Subscribe</button>
+                        <button class="newsletter-section-form-button" type="submit" id="subscribe">Subscribe</button>
                     </form>
                 </aside>
             </section>
@@ -88,5 +88,7 @@
         <footer class="footer">
             <p>© 2024 My Media Collection. All rights reserved.</p>
         </footer>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="./src/scripts.js"></script>
     </body>
     </html>

@@ -100,3 +100,76 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("contactForm").reset();
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("sendAppointment");
+
+  if (btn) {
+    btn.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      var contactEmail = document.getElementById("email").value;
+      var contactDate = document.getElementById("date").value;
+      var contactSubject = document.getElementById("title").value;
+
+      const formattedDate = new Date(contactDate);
+      const year = formattedDate.getFullYear();
+      const month = ("0" + (formattedDate.getMonth() + 1)).slice(-2);
+      const day = ("0" + formattedDate.getDate()).slice(-2);
+      const hours = ("0" + formattedDate.getHours()).slice(-2);
+      const minutes = ("0" + formattedDate.getMinutes()).slice(-2);
+
+      const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}`;
+
+      axios
+        .post("/.netlify/functions/makeAppointment", {
+          email: contactEmail,
+          date: formattedDateTime,
+          project: contactSubject,
+        })
+        .then(function (response) {
+          console.log(response.data);
+          resetForm();
+          alert("Email sent successfully!");
+        })
+        .catch(function (error) {
+          console.log(error.message);
+          alert("Failed to send email. Please try again.");
+        });
+    });
+  }
+
+  function resetForm() {
+    document.getElementById("appointment-form").reset();
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("subscribe");
+
+  if (btn) {
+    btn.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      var contactEmail = document.getElementById("email").value;
+
+      axios
+        .post("/.netlify/functions/makeAppointment", {
+          email: contactEmail,
+        })
+        .then(function (response) {
+          console.log(response.data);
+          resetForm();
+          alert("Email sent successfully!");
+        })
+        .catch(function (error) {
+          console.log(error.message);
+          alert("Failed to send email. Please try again.");
+        });
+    });
+  }
+
+  function resetForm() {
+    document.getElementById("subscription").reset();
+  }
+});
