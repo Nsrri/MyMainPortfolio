@@ -211,6 +211,11 @@
     font-size: 0.6rem;
   }
 }
+.logo-link {
+  text-decoration: none;
+  color: #e6e7e9;
+}
+
 @media screen and (max-width: 447px) and (min-width: 320px) {
   .about-me {
     display: flex;
