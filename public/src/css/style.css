@@ -978,33 +978,32 @@ body {
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  /* using the mixins function */
 }
 
 .nav-container {
   display: grid;
-  grid-template-columns: 4fr 1fr;
+  grid-template-columns: 2fr 1fr;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   background-color: #495057;
   opacity: 0.9;
-  padding: 20px;
+  padding: 20px 20px;
 }
 
 .logo-h1 {
   font-size: 2rem;
   font-weight: bold;
   text-transform: uppercase;
-  padding-left: 10px;
 }
 
 .header-nav-ul {
   display: flex;
   list-style: none;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
+  margin-right: 10px;
 }
 
 .header-nav-li {
@@ -1044,9 +1043,18 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px 0;
+  }
+  .header-nav-ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
   }
   .header-nav-li {
-    margin-right: 25px;
+    margin: 10px 0;
+  }
+  .header-nav-li + .header-nav-li {
+    margin-left: 10px;
   }
 }
 
