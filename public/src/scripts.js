@@ -77,22 +77,26 @@ document.addEventListener("DOMContentLoaded", function () {
       var contactSubject = document.getElementById("subject").value;
       var contactMessage = document.getElementById("message").value;
 
-      axios
-        .post("/.netlify/functions/sendEmail", {
-          name: contactName,
-          email: contactEmail,
-          subject: contactSubject,
-          message: contactMessage,
-        })
-        .then(function (response) {
-          console.log(response.data);
-          resetForm();
-          alert("Email sent successfully!");
-        })
-        .catch(function (error) {
-          console.log(error.message);
-          alert("Failed to send email. Please try again.");
-        });
+      if (contactName && contactEmail && contactSubject) {
+        axios
+          .post("/.netlify/functions/sendEmail", {
+            name: contactName,
+            email: contactEmail,
+            subject: contactSubject,
+            message: contactMessage,
+          })
+          .then(function (response) {
+            console.log(response.data);
+            resetForm();
+            alert("Email sent successfully!");
+          })
+          .catch(function (error) {
+            console.log(error.message);
+            alert("Failed to send email. Please try again.");
+          });
+      } else {
+        alert("Please provide required fields!");
+      }
     });
   }
 
@@ -121,21 +125,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}`;
 
-      axios
-        .post("/.netlify/functions/makeAppointment", {
-          email: contactEmail,
-          date: formattedDateTime,
-          project: contactSubject,
-        })
-        .then(function (response) {
-          console.log(response.data);
-          resetForm();
-          alert("Email sent successfully!");
-        })
-        .catch(function (error) {
-          console.log(error.message);
-          alert("Failed to send email. Please try again.");
-        });
+      if (contactDate && contactEmail) {
+        axios
+          .post("/.netlify/functions/makeAppointment", {
+            email: contactEmail,
+            date: formattedDateTime,
+            project: contactSubject,
+          })
+          .then(function (response) {
+            console.log(response.data);
+            resetForm();
+            alert("Email sent successfully!");
+          })
+          .catch(function (error) {
+            console.log(error.message);
+            alert("Failed to send email. Please try again.");
+          });
+      } else {
+        alert("Please provide required fields!");
+      }
     });
   }
 
@@ -152,20 +160,23 @@ document.addEventListener("DOMContentLoaded", function () {
       event.preventDefault();
 
       var contactEmail = document.getElementById("email").value;
-
-      axios
-        .post("/.netlify/functions/makeAppointment", {
-          email: contactEmail,
-        })
-        .then(function (response) {
-          console.log(response.data);
-          resetForm();
-          alert("Email sent successfully!");
-        })
-        .catch(function (error) {
-          console.log(error.message);
-          alert("Failed to send email. Please try again.");
-        });
+      if (contactEmail) {
+        axios
+          .post("/.netlify/functions/makeAppointment", {
+            email: contactEmail,
+          })
+          .then(function (response) {
+            console.log(response.data);
+            resetForm();
+            alert("Email sent successfully!");
+          })
+          .catch(function (error) {
+            console.log(error.message);
+            alert("Failed to send email. Please try again.");
+          });
+      } else {
+        alert("Please provide required fields!");
+      }
     });
   }
 
