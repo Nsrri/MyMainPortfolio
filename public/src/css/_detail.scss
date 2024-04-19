@@ -76,6 +76,7 @@
 .appointment-section-form-input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(99%);
 }
+/*The CSS -webkit-appearance property allows web developers to make HTML components look more like native User Interface (UI) controls*/
 
 .appointment-section-form-button[type="submit"] {
   color: $color-dark;
